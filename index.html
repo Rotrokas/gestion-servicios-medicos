@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Servicios Médicos</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .section { margin: 20px 0; }
+        button { padding: 10px; font-size: 16px; }
+    </style>
+</head>
+<body>
+    <h1>Gestión de Servicios Médicos</h1>
+
+    <div class="section">
+        <h2>Reservar Cita Médica</h2>
+        <input type="date" id="fechaCita">
+        <button onclick="reservarCita()">Reservar Cita</button>
+        <p id="mensajeCita"></p>
+    </div>
+
+    <div class="section">
+        <h2>Consultar Historia Clínica</h2>
+        <button onclick="consultarHistoria()">Consultar</button>
+        <p id="historiaClinica" style="display: none;">
+            <strong>Historia Clínica:</strong> Paciente: Juan Pérez, Diagnóstico: Gripe, Tratamiento: Reposo y medicación básica.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Enviar Mensaje al Personal Médico</h2>
+        <textarea id="mensaje" rows="4" cols="50"></textarea><br>
+        <button onclick="enviarMensaje()">Enviar Mensaje</button>
+        <p id="respuestaMensaje"></p>
+    </div>
+
+    <script>
+        function reservarCita() {
+            let fecha = document.getElementById("fechaCita").value;
+            if(fecha) {
+                document.getElementById("mensajeCita").innerText = "Cita reservada exitosamente para " + fecha;
+            } else {
+                document.getElementById("mensajeCita").innerText = "Por favor selecciona una fecha.";
+            }
+        }
+
+        function consultarHistoria() {
+            document.getElementById("historiaClinica").style.display = "block";
+        }
+
+        function enviarMensaje() {
+            document.getElementById("respuestaMensaje").innerText = "Su mensaje ha sido enviado.";
+        }
+    </script>
+</body>
+</html>
